@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/led/led.h>
 
 / {
     keymap {
@@ -14,4 +15,15 @@
     behaviors {
         // You can define custom behaviors here if needed
     };
+
+    led_status: led_status {
+        compatible = "gpio-leds";
+        blue_led: led_0 {
+            gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};
+
+&gpio0 {
+    status = "okay";
 };
