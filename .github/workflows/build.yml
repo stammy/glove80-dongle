@@ -30,18 +30,18 @@ jobs:
 
       - name: Initialize West
         run: |
-          mkdir -p app
-          cd app
           west init -l "${GITHUB_WORKSPACE}/zmk-config/config"
+          cd zmk-config
           west update
           west zephyr-export
 
       - name: Build firmware
+        working-directory: zmk-config
         run: |
-          west build -p -b seeeduino_xiao_ble app/zmk/app -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk-config/config"
+          west build -p -b seeeduino_xiao_ble zmk/app -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk-config/config"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: firmware
-          path: build/zephyr/zephyr.uf2
+          path: zmk-config/build/zephyr/zephyr.uf2
