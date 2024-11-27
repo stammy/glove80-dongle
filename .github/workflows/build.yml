@@ -39,7 +39,7 @@ jobs:
           west build -b seeeduino_xiao_ble -d build/zephyr
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: build/zephyr/zephyr.uf2
