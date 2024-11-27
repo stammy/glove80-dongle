@@ -29,14 +29,16 @@ jobs:
           pip install west
 
       - name: Initialize West
-        run: west init -l app/
-
-      - name: Update West
-        run: west update
+        run: |
+          mkdir -p app
+          cd app
+          west init -l "${GITHUB_WORKSPACE}/zmk-config/config"
+          west update
+          west zephyr-export
 
       - name: Build firmware
         run: |
-          west build -b seeeduino_xiao_ble -d build/zephyr
+          west build -p -b seeeduino_xiao_ble app/zmk/app -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk-config/config"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
