@@ -1,11 +1,4 @@
-// Example overlay content
 / {
     chosen {
-        zmk,kscan = &kscan0;
-    };
-
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-matrix";
-        // Add any additional properties or nodes here
     };
 };
