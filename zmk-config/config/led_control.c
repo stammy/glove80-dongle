@@ -16,14 +16,14 @@ static const struct pwm_dt_spec blue_led = PWM_DT_SPEC_GET(BLUE_NODE);
 void set_led_color(bool connected) {
     if (connected) {
         // Green when connected
-        pwm_set_dt(&red_led, MAX_BRIGHTNESS, 0);
-        pwm_set_dt(&green_led, MAX_BRIGHTNESS, MAX_BRIGHTNESS);
-        pwm_set_dt(&blue_led, MAX_BRIGHTNESS, 0);
+        pwm_set_dt(&red_led, MAX_BRIGHTNESS, 0);           // OFF (0% duty cycle)
+        pwm_set_dt(&green_led, MAX_BRIGHTNESS, MAX_BRIGHTNESS); // ON (100% duty cycle)
+        pwm_set_dt(&blue_led, MAX_BRIGHTNESS, 0);          // OFF (0% duty cycle)
     } else {
         // Red when disconnected
-        pwm_set_dt(&red_led, MAX_BRIGHTNESS, MAX_BRIGHTNESS);
-        pwm_set_dt(&green_led, MAX_BRIGHTNESS, 0);
-        pwm_set_dt(&blue_led, MAX_BRIGHTNESS, 0);
+        pwm_set_dt(&red_led, MAX_BRIGHTNESS, MAX_BRIGHTNESS); // ON (100% duty cycle)
+        pwm_set_dt(&green_led, MAX_BRIGHTNESS, 0);         // OFF (0% duty cycle)
+        pwm_set_dt(&blue_led, MAX_BRIGHTNESS, 0);         // OFF (0% duty cycle)
     }
 }
 
