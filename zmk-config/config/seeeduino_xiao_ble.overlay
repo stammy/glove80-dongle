@@ -33,7 +33,7 @@
 &pinctrl {
     pwm0_default: pwm0_default {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>;  // Red LED
+            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>;  // Red LED - PWM0 channel 0
         };
     };
 
@@ -46,13 +46,13 @@
 
     pwm1_default: pwm1_default {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 30)>;  // Green LED
+            psels = <NRF_PSEL(PWM_OUT1, 0, 30)>;  // Green LED - PWM1 channel 1
         };
     };
 
     pwm1_sleep: pwm1_sleep {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 30)>;
+            psels = <NRF_PSEL(PWM_OUT1, 0, 30)>;
             low-power-enable;
         };
     };
