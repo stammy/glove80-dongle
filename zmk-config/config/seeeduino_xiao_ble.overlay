@@ -19,14 +19,31 @@
     };
 
     chosen {
-        zmk,matrix_transform = &default_transform;
+        zmk,kscan = &mock_kscan;
+        zmk,matrix-transform = &default_transform;
+    };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
     };
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
-        columns = <1>;
-        rows = <1>;
-        map = <0>;
+        columns = <14>;
+        rows = <6>;
+        map = <
+             0  1  2  3  4                                          45 46 47 48 49
+            10 11 12 13 14 15                                    44 50 51 52 53 54
+            20 21 22 23 24 25                                    43 55 56 57 58 59
+            30 31 32 33 34 35                                    42 60 61 62 63 64
+            40 41 42 43 44 45                                    41 65 66 67 68 69
+            70 71 72 73 74                                          75 76 77 78 79
+                                   5  6  7  8  9 10
+                                  35 36 37 38 39 40
+        >;
     };
 };
 
