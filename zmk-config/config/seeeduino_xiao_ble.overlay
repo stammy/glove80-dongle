@@ -1,21 +1,21 @@
 / {
+    pwmleds {
+        compatible = "pwm-leds";
+        led_red: red_led {
+            pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+        };
+        led_green: green_led {
+            pwms = <&pwm1 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+        };
+        led_blue: blue_led {
+            pwms = <&pwm2 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+        };
+    };
+
     aliases {
         red-pwm-led = &led_red;
         green-pwm-led = &led_green;
         blue-pwm-led = &led_blue;
-    };
-
-    pwmleds {
-        compatible = "pwm-leds";
-        red_led: led_red {
-            pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
-        };
-        green_led: led_green {
-            pwms = <&pwm1 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
-        };
-        blue_led: led_blue {
-            pwms = <&pwm2 0 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
-        };
     };
 };
 
