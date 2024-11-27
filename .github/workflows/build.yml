@@ -49,8 +49,11 @@ jobs:
         run: |
           west build -p -b seeeduino_xiao_ble zmk/app -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/zmk-config/config"
 
-      - name: Upload artifact
+      - name: Upload Firmware
         uses: actions/upload-artifact@v4
         with:
           name: firmware
-          path: zmk-config/build/zephyr/zephyr.uf2
+          path: ${{ github.workspace }}/zmk-config/build/zephyr/zmk.uf2
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
