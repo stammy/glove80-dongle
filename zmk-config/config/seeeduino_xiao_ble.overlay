@@ -23,7 +23,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,matrix-transform = &default_transform;
-         zephyr,console = &usbd;
+        zephyr,console = &cdc_acm_uart;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -111,5 +111,8 @@
 };
 
 &usbd {
-    status = "okay";
+  status = "okay";
+  cdc_acm_uart: cdc_acm_uart {
+    compatible = "zephyr,cdc-acm-uart";
+  };
 };
