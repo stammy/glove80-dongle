@@ -23,6 +23,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,matrix-transform = &default_transform;
+         zephyr,console = &usbd;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -109,6 +110,6 @@
     pinctrl-names = "default", "sleep";
 };
 
-&uart0 {
+&usbd {
     status = "okay";
 };
