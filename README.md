@@ -1,0 +1,1 @@
+Work in progress repo for using a Seeed Xiao BLE (nRF52840) as a ZMK keyboard firmware "central" for the Glove80 keyboard to increase battery life (by not having the left half of the keyboard always awake acting as the central).
